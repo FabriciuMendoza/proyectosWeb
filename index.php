@@ -39,16 +39,19 @@ if (isset($_POST["inputUsuario"], $_POST["inputPassword"])) {
 
 	}
 
+    //print($usuario."->".$password);
+
+    //----------------------probando------------------
+    //echo "todo ok!";
+    //echo "El usuario es: $usuario y la contraseña es: $password";
+}
 
 
-	//print($usuario."->".$password);
-
-	//----------------------probando------------------
-	//echo "todo ok!";
-	//echo "El usuario es: $usuario y la contraseña es: $password";
 
 
-
+//para permitir ver la página :D, si hay usuario conectado, dirigirlo a inicio
+if($session->getUsuario()!==null){
+    header("location:inicio.php");
 }
 
  ?>

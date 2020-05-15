@@ -48,6 +48,14 @@ if(isset($_POST["nueva"])){
     }
 }
 
+
+//Validar que se ha realizado el logueo correspondiente
+
+//para permitir ver la página :D
+if($session->getUsuario()==null){
+//Como no se encuentra registrado lo mandamos al login para que ingrese nuevamente
+header("location:index.php");
+}
  ?>
 
 
@@ -108,7 +116,10 @@ if(isset($_POST["nueva"])){
                     <a href="admon.php" class="nav-link">Admon</a>
                 </li>
             </ul>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item text-danger text-light ">
+                    <?php  print "<a>Bienvenido(a), ".$session->getUsuario()." </a>";?>
+                </li>
                 <li class="nav-item">
                     <a href="salir.php" class="nav-link">Salir</a>
                 </li>

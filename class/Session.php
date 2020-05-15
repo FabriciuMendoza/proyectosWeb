@@ -24,7 +24,7 @@ class Session
 			$this->usuario = $_SESSION["usuario"];
 			$this->login = true;
 		}else{
-			unset($this->usuario);
+			//unset($this->usuario);
 			$this->login = false;
 		}
 	}
@@ -37,11 +37,12 @@ class Session
 		}
 	}
 
-	public function finLogin($usuario)
+	public function finLogin()
 	{
 		unset($_SESSION["usuario"]);
 		unset($this->usuario);
-		$this->login = false;				
+		$this->login = false;
+		session_destroy();			
 	}
 
 	public function estadoLogion()

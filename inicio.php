@@ -14,6 +14,13 @@ Leemos la sesión
 
 $session = new Session();
 
+//para permitir ver la página :D
+if($session->getUsuario()==null){
+
+    //Como no se encuentra registrado lo mandamos al login para que ingrese nuevamente
+    header("location:index.php");
+}
+
  ?>
 
 
@@ -35,8 +42,8 @@ $session = new Session();
 
 </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand" href="home.php">Gastos</a>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+            <a class="navbar-brand" href="inicio.php">Gastos</a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
                     <a href="inicio.php" class="nav-link">Resumen</a>
@@ -61,10 +68,13 @@ $session = new Session();
                 </li>
                 <li class="nav-item">
                     <a href="admon.php" class="nav-link">Admon</a>
-                </li>
+                </li><
             </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item text-danger text-light ">
+                    <?php  print "<a>Bienvenido(a), ".$session->getUsuario()." </a>";?>
+                </li>
+                <li class="nav-item">       
                     <a href="salir.php" class="nav-link">Salir</a>
                 </li>
             </ul>
